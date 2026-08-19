@@ -31,6 +31,21 @@ omniroute
 
 Dashboard opens at `http://localhost:20128` and API base URL is `http://localhost:20128/v1`.
 
+### Windows (PowerShell)
+
+`scripts/cli/install.ps1` wraps the npm install for Windows: it checks for a supported Node.js
+version (installing the LTS via `winget` if missing), runs `npm install -g omniroute`, and prints
+the quick-start steps.
+
+```powershell
+pwsh -File scripts/cli/install.ps1
+```
+
+Useful flags: `-Version next` to track a different npm dist-tag, `-SkipPostinstall` to skip the
+native `better-sqlite3` build warm-up on slow/headless machines, `-SkipNodeCheck` if you manage
+Node.js yourself (nvm-windows, Volta, fnm), and `-Yes` to accept the winget Node.js install
+non-interactively. Run `Get-Help ./scripts/cli/install.ps1 -Full` for details.
+
 ### pnpm
 
 ```bash
